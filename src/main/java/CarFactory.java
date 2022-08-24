@@ -7,11 +7,10 @@ public class CarFactory {
         return rand.nextInt(100000);
     }
 
-    private final static String brand = "volvo";
-
-    static Car create(String color){
-
+     public Car create(String color){
+        String brand = "volvo";
         return new Car(color, brand, createRegNr());
     };
+
 
 }

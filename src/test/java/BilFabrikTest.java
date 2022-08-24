@@ -8,10 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BilFabrikTest {
 
     Car car;
+    Car carNewBrand;
+    CarFactory carFactory = new CarFactory();
+    CarFactoryNewBrand newBrandCar = new CarFactoryNewBrand();
 
     @BeforeEach
     void setUp() {
-        car = CarFactory.create("blue");
+        car = carFactory.create("blue");
+        carNewBrand = newBrandCar.create("blue");
     }
 
     @Test
@@ -38,6 +42,21 @@ public class BilFabrikTest {
     @Test
     public void checkCarRegNrAboveZero(){
         assertTrue(car.getRegnr() > -1);
+    }
+
+    @Test
+    public void checkNewBrand(){
+        assertEquals("honda", carNewBrand.getBrand());
+    }
+
+    @Test
+    public void checkNewBrandCarColor(){
+        assertEquals("blue", carNewBrand.getColor());
+    }
+
+    @Test
+    public void checkNewBrandCarRegNrShouldFailJustToShowIfRegNrWorks(){
+        assertEquals(999999999, carNewBrand.getRegnr());
     }
 
 }
