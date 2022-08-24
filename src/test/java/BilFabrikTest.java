@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BilFabrikTest {
 
     Car car;
-    Car carNewBrand;
+    Car hondaCar;
     CarFactory carFactory = new CarFactory();
-    CarFactoryNewBrand newBrandCar = new CarFactoryNewBrand();
+    HondaCarFactory newBrandCar = new HondaCarFactory();
 
     @BeforeEach
     void setUp() {
         car = carFactory.create("blue");
-        carNewBrand = newBrandCar.create("blue");
+        hondaCar = newBrandCar.create("blue");
     }
 
     @Test
@@ -34,22 +34,22 @@ public class BilFabrikTest {
 
     @Test
     public void checkNewBrand(){
-        assertEquals("honda", carNewBrand.getBrand());
+        assertEquals("honda", hondaCar.getBrand());
     }
 
     @Test
     public void checkNewBrandCarColor(){
-        assertEquals("blue", carNewBrand.getColor());
+        assertEquals("blue", hondaCar.getColor());
     }
 
     @Test
     public void checkEngine(){
-        assertEquals("v6", car.getEngine());
+        assertEquals("v6",car.getEngine());
     }
 
     @Test
-    public void checkEngineNewBrand(){
-        assertEquals("v4", carNewBrand.getEngine());
+    public void checkEngineHonda(){
+        assertEquals("v4", hondaCar.getEngine());
     }
 
 }

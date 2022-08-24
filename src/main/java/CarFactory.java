@@ -1,14 +1,18 @@
 public class CarFactory {
 
+    private String getBrand(){
+        return "volvo";
+    }
+    private String getEngine(){
+        return "v6";
+    }
+
     public int createRegNr(){
       return CreateRegNR.createReg();
     }
 
      public Car create(String color){
-        String brand = "volvo";
-        String engine = "v6";
-        return new Car(color, brand, createRegNr(), engine);
-    };
-
+        return new Car(color, getBrand(), createRegNr(), getEngine());
+    }
 
 }

@@ -4,9 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegNrTest {
 
+    int regnr = CreateRegNR.createReg();
+
     @Test
     public void checkRegNrRange(){
-        int regnr = CreateRegNR.createReg();
         assertTrue(regnr <100001 && regnr > -1);
     }
 
