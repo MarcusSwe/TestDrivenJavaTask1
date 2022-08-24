@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,27 +7,36 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BilFabrikTest {
 
+    Car car;
+
+    @BeforeEach
+    void setUp() {
+        car = CarFactory.create("blue");
+    }
+
     @Test
     public void getCarColorTest(){
-        Car car = CarFactory.create("blue");
         assertEquals("blue", car.getColor());
     }
 
     @Test
     public void getCarBrandTest(){
-        Car car = CarFactory.create("blue");
         assertEquals("volvo", car.getBrand());
     }
 
+    /*
+    @Test
+    public void getCarBrandTestofTestShouldFail(){
+        assertEquals("honda", car.getBrand());
+    }*/
+
     @Test
     public void checkCarRegNrBelowSevenFigures(){
-        Car car = CarFactory.create("blue");
-        assertTrue(car.getRegnr() < 100000);
+        assertTrue(car.getRegnr() < 100001);
     }
 
     @Test
     public void checkCarRegNrAboveZero(){
-        Car car = CarFactory.create("blue");
         assertTrue(car.getRegnr() > -1);
     }
 
