@@ -1,15 +1,13 @@
-import java.util.Random;
-
 public class CarFactory {
 
-    static int createRegNr(){
-        Random rand = new Random();
-        return rand.nextInt(100000);
+    public int createRegNr(){
+      return CreateRegNR.createReg();
     }
 
      public Car create(String color){
         String brand = "volvo";
-        return new Car(color, brand, createRegNr());
+        String engine = "v6";
+        return new Car(color, brand, createRegNr(), engine);
     };
 
 
